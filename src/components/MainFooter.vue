@@ -10,6 +10,7 @@
             <br>
             <router-link to="/our-nursery/privacy-policy" @click.native="$scrollToTop">Privacy Policy</router-link>
           </p>
+          <img class="img-fluid" src="img/logo.svg" alt="logo">
         </center>
       </div>
     </div>
@@ -23,3 +24,10 @@
   }
 
 </script>
+
+<style>
+  .copyright img {
+    width: 15%;
+  }
+
+</style>

@@ -72,7 +72,7 @@
               this.fields.ctaLink = document.data.cta_link
               this.fields.ctaText = document.data.cta_text
               this.fields.slices = document.data.body
-              if (document.data.cover.url) {
+              if (document.data.cover) {
                 this.fields.cover = document.data.cover
               } else {
                 this.fields.cover = {

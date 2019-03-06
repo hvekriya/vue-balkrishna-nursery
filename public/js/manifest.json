@@ -1,0 +1,45 @@
+{
+  "short_name": "Bal Krishna",
+  "name": "Bal Krishna Nursery",
+  "icons": [{
+      "src": "../img/icons/circle-55x55.png",
+      "type": "image/png",
+      "sizes": "36x36"
+    },
+    {
+      "src": "../img/icons/circle-58x58.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "../img/icons/circle-80x80.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "../img/icons/circle-87x87.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "../img/icons/circle-172x172.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "../img/icons/circle-196x196.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "../img/icons/circle-1024x1024.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#7e2778",
+  "theme_color": "#7e2778",
+  "display": "standalone",
+  "start_url": "/",
+  "mobile-web-app-capable": "yes"
+}
