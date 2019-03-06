@@ -9,29 +9,35 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-              <h1>{{ $prismic.richTextAsPlain(fields.title) }}</h1>
+              <h1>About us</h1>
             </div>
           </div>
         </div>
       </div>
     </header>
-
-    <prismic-image :field="fields.cover" class="img-responsive" />
     <prismic-rich-text :field="fields.content" class="description" />
+    <section v-for="(slice, index) in fields.slices" :key="'slice-' + index">
+      <template v-if="slice.slice_type === 'description'">
+        <prismic-rich-text :field="slice.primary.rich_text"/>
+      </template>
+      <template v-else-if="slice.slice_type === 'photo_gallery'">
+        <prismic-rich-text :field="slice.primary.title"/>
+        <template v-for="(item, index) in slice.items">
+          <prismic-image :field="item.image" :key="'photo-item-' + index"/>
+        </template>
+      </template>
+    </section>
     <div class="cta-wrapper">
       <prismic-link :field="fields.ctaLink" class="cta">
         {{ $prismic.richTextAsPlain(fields.ctaText) }}
       </prismic-link>
     </div>
-    <hr>
-    <h5>Posted on {{fields.postedDate | formatDate }}</h5>
-    <hr>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Post',
+    name: 'About',
     data() {
       return {
         documentId: '',
@@ -40,25 +46,22 @@
           content: null,
           ctaLink: null,
           ctaText: null,
-          postedDate: null,
-          cover: null
+          slices: []
         }
       }
     },
     methods: {
-      getContent(uid) {
-        this.$prismic.client.getByUID('blog', uid)
+      getContent() {
+        this.$prismic.client.getSingle('about-us')
           .then((document) => {
+            console.log(document)
             if (document) {
               this.documentId = document.id
               this.fields.title = document.data.title
               this.fields.content = document.data.content
               this.fields.ctaLink = document.data.cta_link
               this.fields.ctaText = document.data.cta_text
-              this.fields.postedDate = document.first_publication_date
-              if (document.data.cover.url) {
-                this.fields.cover = document.data.cover
-              }
+              this.fields.slices = document.data.body;
             } else {
               this.$router.push({
                 name: 'not-found'
@@ -68,10 +71,10 @@
       }
     },
     created() {
-      this.getContent(this.$route.params.uid)
+      this.getContent()
     },
     beforeRouteUpdate(to, from, next) {
-      this.getContent(to.params.uid)
+      this.getContent()
       next()
     }
   }

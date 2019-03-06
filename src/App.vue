@@ -4,12 +4,11 @@
     <transition name="custom-classes-transition" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
       <router-view />
     </transition>
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 
 <script>
-  require('./assets/js/main.js')
   import Footer from './components/MainFooter'
   import Header from './components/Header'
 
@@ -34,10 +33,6 @@
 </style>
 
 <style>
-  #app {
-    margin-top: 50px;
-  }
-
   .wrapper {
     margin-left: auto;
     margin-right: auto;

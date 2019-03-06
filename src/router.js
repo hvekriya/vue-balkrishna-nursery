@@ -14,6 +14,13 @@ export default new Router({
       name: 'Home',
       component: loadView('Home')
     },
+    // About
+    {
+      path: '/about',
+      name: 'About',
+      component: loadView('About')
+    },
+
     // Blog
     {
       path: '/blog',

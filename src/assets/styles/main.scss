@@ -1,6 +1,14 @@
 @import 'prismic-edit-button';
 @import 'resetr';
-@import './sass_modules/clean-blog';
+@import "./sass_modules/variables.scss";
+@import "./sass_modules/mixins.scss";
+@import "./sass_modules/global.scss";
+@import "./sass_modules/navbar.scss";
+@import "./sass_modules/masthead.scss";
+@import "./sass_modules/post.scss";
+@import "./sass_modules/contact.scss";
+@import "./sass_modules/footer.scss";
+@import "./sass_modules/bootstrap-overrides.scss";
 
 @mixin respond-to($media) {
   @if $media==handhelds {
