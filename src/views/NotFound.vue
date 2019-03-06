@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <p>Not Found</p>
+  <div class="wrapper container">
+    <h1>Not Found</h1>
   </div>
 </template>
 

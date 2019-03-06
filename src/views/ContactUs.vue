@@ -7,8 +7,7 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-              <h1>Bal Krishna Nursery</h1>
-              <span class="subheading">by Woolwich Temple</span>
+              <h1>Contact Us</h1>
             </div>
           </div>
         </div>
@@ -25,7 +24,7 @@
 
 <script>
   export default {
-    name: 'Home'
+    name: 'ContactUs'
   }
 
 </script>

@@ -8,7 +8,6 @@
       </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -18,6 +17,19 @@
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/about" @click.native="$scrollToTop">About</router-link>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+              aria-expanded="false">Our Nursery</a>
+            <div class="dropdown-menu">
+              <router-link class="dropdown-item" to="/our-nursery/curriculum" @click.native="$scrollToTop">Curriculum</router-link>
+              <router-link class="dropdown-item" to="/our-nursery/food" @click.native="$scrollToTop">Food</router-link>
+              <router-link class="dropdown-item" to="/our-nursery/fees-and-funding" @click.native="$scrollToTop">Fees
+                and funding </router-link>
+            </div>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/parents" @click.native="$scrollToTop">Parents</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/blog" @click.native="$scrollToTop">Blog</router-link>

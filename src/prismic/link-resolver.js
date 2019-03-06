@@ -12,16 +12,16 @@ export default function (doc) {
     return '/'
   }
 
-  if (doc.type === 'article') {
-    return '/article/' + doc.id
+  if (doc.type === 'about-us') {
+    return '/about-us/' + doc.id
   }
 
   if (doc.type === 'blog') {
     return '/post/' + doc.id
   }
 
-  if (doc.type === 'privacy-policy') {
-    return '/page/' + doc.type
+  if (doc.type === 'about-us') {
+    return '/' + doc.type
   }
 
   return '/not-found'

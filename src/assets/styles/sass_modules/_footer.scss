@@ -1,13 +1,32 @@
 // Styling for the footer
 footer {
   padding: 50px 0 65px;
+  background-color: #222222;
+  color: white;
+  text-align: center;
+
+  a {
+    color: white;
+  }
+
   .list-inline {
     margin: 0;
     padding: 0;
   }
+
   .copyright {
     font-size: 14px;
     margin-bottom: 0;
     text-align: center;
   }
+
+  #map {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 22.25%;
+    padding-top: 30px;
+    position: relative;
+    width: 100%;
+  }
+
 }
