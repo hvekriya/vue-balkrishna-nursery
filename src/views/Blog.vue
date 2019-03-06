@@ -1,7 +1,7 @@
 <!-- Create file src/views/Page.vue -->
 
 <template>
-  <div class="wrapper container">
+  <div>
     <header class="masthead" style="background-image: url('img/home-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
@@ -14,25 +14,27 @@
         </div>
       </div>
     </header>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post" v-for="(item, index) in posts" :key="'posts-' + index">
-            <div class="post-preview">
-              <h2 class="post-title" v-for="(title, index) in item.data.title">
-                <a :href="'/post/' + item.uid">{{ title.text }}</a>
-              </h2>
-              <p class="post-meta">{{ item.data.content | readMore(200, '...')  }} <a :href="'/post/' + item.uid">Read more</a></p>
-              <ul class="list-inline list-unstyled">
-                <li>
-                  <span>
-                    <i class="glyphicon glyphicon-calendar"></i>Posted on {{item.first_publication_date | formatDate}}
-                  </span>
-                </li>
-              </ul>
+    <div class="wrapper container">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post" v-for="(item, index) in posts" :key="'posts-' + index">
+              <div class="post-preview">
+                <h2 class="post-title" v-for="(title, index) in item.data.title">
+                  <a :href="'/post/' + item.uid">{{ title.text }}</a>
+                </h2>
+                <p class="post-meta">{{ item.data.content | readMore(200, '...')  }} <a :href="'/post/' + item.uid">Read
+                    more</a></p>
+                <ul class="list-inline list-unstyled">
+                  <li>
+                    <span>
+                      <i class="glyphicon glyphicon-calendar"></i>Posted on {{item.first_publication_date | formatDate}}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <hr>
             </div>
-            <hr>
           </div>
         </div>
       </div>

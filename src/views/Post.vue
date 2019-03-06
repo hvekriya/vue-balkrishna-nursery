@@ -1,8 +1,7 @@
 <!-- Create file src/views/Page.vue -->
 
 <template>
-  <div class="wrapper container">
-    <prismic-edit-button :documentId="documentId" />
+  <div>
     <header class="masthead" style="background-image: url('img/home-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
@@ -15,17 +14,19 @@
         </div>
       </div>
     </header>
-
-    <prismic-image :field="fields.cover" class="img-responsive" />
-    <prismic-rich-text :field="fields.content" class="description" />
-    <div class="cta-wrapper">
-      <prismic-link :field="fields.ctaLink" class="cta">
-        {{ $prismic.richTextAsPlain(fields.ctaText) }}
-      </prismic-link>
+    <div class="wrapper container">
+      <prismic-edit-button :documentId="documentId" />
+      <prismic-image :field="fields.cover" class="img-responsive" />
+      <prismic-rich-text :field="fields.content" class="description" />
+      <div class="cta-wrapper">
+        <prismic-link :field="fields.ctaLink" class="cta">
+          {{ $prismic.richTextAsPlain(fields.ctaText) }}
+        </prismic-link>
+      </div>
+      <hr>
+      <h5>Posted on {{fields.postedDate | formatDate }}</h5>
+      <hr>
     </div>
-    <hr>
-    <h5>Posted on {{fields.postedDate | formatDate }}</h5>
-    <hr>
   </div>
 </template>
 
