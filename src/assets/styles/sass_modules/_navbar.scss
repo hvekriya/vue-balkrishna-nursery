@@ -4,17 +4,16 @@
   border-bottom: 1px solid $gray-200;
   background-color: white;
   @include sans-serif-font;
-
   @import url(https://db.onlinewebfonts.com/c/7e96eba370659b4e4563309dc4ebb33f?family=Samarkan);
 
   @font-face {
     font-family: Samarkan;
-    src: url("https://db.onlinewebfonts.com/t/7e96eba370659b4e4563309dc4ebb33f.eot");
-    src: url("https://db.onlinewebfonts.com/t/7e96eba370659b4e4563309dc4ebb33f.eot?#iefix") format("embedded-opentype"),
-      url("https://db.onlinewebfonts.com/t/7e96eba370659b4e4563309dc4ebb33f.woff2") format("woff2"),
-      url("https://db.onlinewebfonts.com/t/7e96eba370659b4e4563309dc4ebb33f.woff") format("woff"),
-      url("https://db.onlinewebfonts.com/t/7e96eba370659b4e4563309dc4ebb33f.ttf") format("truetype"),
-      url("https://db.onlinewebfonts.com/t/7e96eba370659b4e4563309dc4ebb33f.svg#Samarkan") format("svg");
+    src: url("/styles/fonts/samarkan.eot");
+    src: url("/styles/fonts/samarkan.eot") format("embedded-opentype"),
+      url("/styles/fonts/samarkan.woff2") format("woff2"),
+      url("/styles/fonts/samarkan.woff") format("woff"),
+      url("/styles/fonts/samarkan.ttf") format("truetype"),
+      url("/styles/fonts/samarkan.svg") format("svg");
     font-display: swap;
   }
 
