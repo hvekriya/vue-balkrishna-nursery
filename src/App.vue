@@ -20,7 +20,7 @@
     },
     watch: {
       '$route'() {
-        $('#bs-example-navbar-collapse-1').collapse('hide');
+        $('.navbar-collapse').collapse('hide');
       }
     }
   }

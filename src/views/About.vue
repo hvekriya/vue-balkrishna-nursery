@@ -71,7 +71,7 @@
               this.fields.ctaLink = document.data.cta_link
               this.fields.ctaText = document.data.cta_text
               this.fields.slices = document.data.body;
-              if (document.data.cover) {
+              if (document.data.cover.url) {
                 this.fields.cover = document.data.cover
               }
             } else {
