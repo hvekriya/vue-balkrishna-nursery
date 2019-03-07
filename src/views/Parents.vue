@@ -17,17 +17,34 @@
     <div class="wrapper container">
       <prismic-edit-button :documentId="documentId" />
       <prismic-rich-text :field="fields.content" class="description" />
-      <section v-for="(slice, index) in fields.slices" :key="'slice-' + index">
-        <template v-if="slice.slice_type === 'description'">
-          <prismic-rich-text :field="slice.primary.rich_text" />
+      <!-- FAQ Tabs -->
+      <template v-for="(slice, index) in fields.slices">
+        <template v-if="slice.slice_type === 'text'">
+          <!-- Section heading -->
+          <prismic-rich-text :field="slice.primary.intro" />
+          <!-- Main card -->
+          <div class="bd-example" data-example-id="">
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="card" v-for="(item, index) in slice.items" :key="'photo-' + index">
+                <div class="card-header" role="tab" id="headingOne">
+                  <div class="mb-0">
+                    <a data-toggle="collapse" data-parent="#accordion" :href="'#collapse-' + index" aria-expanded="false"
+                      :aria-controls="'#collapse-' + index" class="collapsed">
+                      <prismic-rich-text :field="item.question" class="card-title mb-0" />
+                    </a>
+                  </div>
+                </div>
+                <div :id="'collapse-' + index" class="collapse" role="tabpanel" aria-labelledby="headingOne"
+                  aria-expanded="false">
+                  <div class="card-body">
+                    <prismic-rich-text :field="item.answer" class="card-text text-black-50" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </template>
-        <template v-else-if="slice.slice_type === 'photo_gallery'">
-          <prismic-rich-text :field="slice.primary.title" />
-          <template v-for="(item, index) in slice.items">
-            <prismic-image :field="item.image" :key="'photo-item-' + index" />
-          </template>
-        </template>
-      </section>
+      </template>
       <div class="cta-wrapper">
         <prismic-link :field="fields.ctaLink" class="cta">
           {{ $prismic.richTextAsPlain(fields.ctaText) }}
