@@ -25,51 +25,21 @@
       </div>
 
       <!-- Slices -->
-      <!-- Team Members -->
-      <h2>Our Team</h2>
-      <div class="row">
-        <template v-for="(slice, index) in fields.slices">
-          <template v-if="slice.slice_type === 'team'">
-            <div class="col-xl-3 col-md-6 mb-4" v-for="(item, index) in slice.items" :key="'photo-' + index">
-              <div class="card border-0 shadow">
-                <prismic-image :field="item.portrait" class="card-img-top" alt="item.portrait[index].alt" />
-                <div class="card-body text-center">
-                  <prismic-rich-text :field="item.first_and_lastname" class="card-title mb-0" />
-                  <prismic-rich-text :field="item.position" class="card-text text-black-50" />
-                </div>
-              </div>
-            </div>
-          </template>
-        </template>
-      </div>
-      <!-- Gallery -->
-      <template v-for="(slice, index) in fields.slices">
-        <template v-if="slice.slice_type === 'image_gallery'">
-          <hooper :progress="true" :autoPlay="true" :playSpeed="2000" style="height: 100%">
-            <slide v-for="(item, index) in slice.items" :key="'photo-' + index">
-              <prismic-image :field="item.gallery_image" class="img-fluid" />
-            </slide>
-            <hooper-navigation slot="hooper-addons"></hooper-navigation>
-          </hooper>
-        </template>
-      </template>
+      <Team :fields="fields" />
+      <Slider :fields="fields" />
+
     </div>
   </div>
 </template>
 
 <script>
-  import {
-    Hooper,
-    Slide,
-    Navigation as HooperNavigation
-  } from 'hooper'
-  import 'hooper/dist/hooper.css'
+  import Slider from '../components/Slider'
+  import Team from '../components/Team'
   export default {
     name: 'About',
     components: {
-      Hooper,
-      Slide,
-      HooperNavigation
+      Slider,
+      Team
     },
     data() {
       return {

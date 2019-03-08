@@ -17,17 +17,6 @@
     <div class="wrapper container">
       <prismic-edit-button :documentId="documentId" />
       <prismic-rich-text :field="fields.content" class="description" />
-      <section v-for="(slice, index) in fields.slices" :key="'slice-' + index">
-        <template v-if="slice.slice_type === 'description'">
-          <prismic-rich-text :field="slice.primary.rich_text" />
-        </template>
-        <template v-else-if="slice.slice_type === 'photo_gallery'">
-          <prismic-rich-text :field="slice.primary.title" />
-          <template v-for="(item, index) in slice.items">
-            <prismic-image :field="item.image" :key="'photo-item-' + index" />
-          </template>
-        </template>
-      </section>
       <div class="cta-wrapper">
         <prismic-link :field="fields.ctaLink" class="cta">
           {{ $prismic.richTextAsPlain(fields.ctaText) }}
