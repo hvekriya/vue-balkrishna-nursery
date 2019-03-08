@@ -8,7 +8,8 @@ body {
 p {
   line-height: 1.5;
   margin: 30px 0;
-  a {
+
+  a:not(.btn) {
     text-decoration: underline;
   }
 }
@@ -26,6 +27,7 @@ h6 {
 a {
   color: $gray-900;
   @include transition-all;
+
   &:focus,
   &:hover {
     color: $primary;
@@ -74,4 +76,9 @@ img::selection {
 img::-moz-selection {
   color: $white;
   background: transparent;
+}
+
+.jumbotron {
+  background: no-repeat center center;
+  @include background-cover;
 }

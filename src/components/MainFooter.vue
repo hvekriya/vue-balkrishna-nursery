@@ -24,10 +24,3 @@
   }
 
 </script>
-
-<style>
-  .copyright img {
-    width: 15%;
-  }
-
-</style>

@@ -38,6 +38,28 @@ Vue.filter('truncate', function (value) {
   return value
 })
 
+Vue.mixin({
+  methods: {
+    randomCover: () => {
+      let coverList = [{
+          "url": "https://balkrishna.cdn.prismic.io/balkrishna/6896f63e22fa9cee3f7f08d191532933c8186937_abc.jpg"
+        },
+        {
+          "url": "https://balkrishna.cdn.prismic.io/balkrishna/d7678442e32d849198e6457f01f9556c5510d654_legojpg.jpg"
+        },
+        {
+          "url": "https://balkrishna.cdn.prismic.io/balkrishna/5536b5de1e1dd00784c8b7a6eb6644192bee5643_pencil.jpg"
+        },
+        {
+          "url": "https://balkrishna.cdn.prismic.io/balkrishna/ddb2a7afc3d6e8220b1a8854f70bb845a2f74231_colored-pencils.jpg"
+        }
+      ]
+      let random = Math.floor(Math.random() * coverList.length)
+      return coverList[random]
+    }
+  }
+})
+
 Vue.prototype.$scrollToTop = () => window.scrollTo(0, 0)
 
 new Vue({

@@ -41,15 +41,7 @@
           ctaLink: null,
           ctaText: null,
           postedDate: null,
-          cover: {
-            "dimensions": {
-              "width": 1191,
-              "height": 1684
-            },
-            "alt": null,
-            "copyright": null,
-            "url": "https://balkrishna.cdn.prismic.io/balkrishna/a948adfe837dbfe0f4f1963c366b74f0950de6e6_logo.png"
-          }
+          cover: this.randomCover()
         }
       }
     },

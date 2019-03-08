@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+    <header class="masthead" v-bind:style="{ backgroundImage: 'url(' + this.fields.cover.url + ')' }">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -47,7 +47,10 @@
     name: 'Blog',
     data() {
       return {
-        posts: null
+        posts: null,
+        fields: {
+          cover: this.randomCover()
+        }
       }
     },
     methods: {

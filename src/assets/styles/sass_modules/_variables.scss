@@ -31,3 +31,23 @@ $warning: $yellow !default;
 $danger: $red !default;
 $light: $gray-100 !default;
 $dark: $gray-800 !default;
+
+@mixin respond-to($media) {
+  @if $media==handhelds {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+
+  @else if $media==medium-screens {
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @else if $media==wide-screens {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  }
+}

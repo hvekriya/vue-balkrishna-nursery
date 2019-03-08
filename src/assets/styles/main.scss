@@ -10,23 +10,3 @@
 @import "./sass_modules/contact.scss";
 @import "./sass_modules/footer.scss";
 @import "./sass_modules/bootstrap-overrides.scss";
-
-@mixin respond-to($media) {
-  @if $media==handhelds {
-    @media only screen and (max-width: 768px) {
-      @content;
-    }
-  }
-
-  @else if $media==medium-screens {
-    @media only screen and (min-width: 769px) and (max-width: 1024px) {
-      @content;
-    }
-  }
-
-  @else if $media==wide-screens {
-    @media only screen and (min-width: 1024px) {
-      @content;
-    }
-  }
-}

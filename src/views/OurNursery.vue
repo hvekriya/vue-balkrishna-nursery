@@ -23,12 +23,17 @@
         </prismic-link>
       </div>
     </div>
+    <Banner :fields="fields" />
   </div>
 </template>
 
 <script>
+  import Banner from '../components/Banner'
   export default {
     name: 'OurNursery',
+    components: {
+      Banner
+    },
     data() {
       return {
         documentId: '',
@@ -38,15 +43,7 @@
           ctaLink: null,
           ctaText: null,
           slices: [],
-          cover: {
-            "dimensions": {
-              "width": 1191,
-              "height": 1684
-            },
-            "alt": null,
-            "copyright": null,
-            "url": "https://balkrishna.cdn.prismic.io/balkrishna/a948adfe837dbfe0f4f1963c366b74f0950de6e6_logo.png"
-          }
+          cover: this.randomCover()
         }
       }
     },

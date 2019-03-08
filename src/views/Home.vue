@@ -1,7 +1,7 @@
 <template>
   <main id="content" role="main">
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+    <header class="masthead" v-bind:style="{ backgroundImage: 'url(' + this.fields.cover.url + ')' }">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -25,7 +25,14 @@
 
 <script>
   export default {
-    name: 'Home'
+    name: 'Home',
+    data() {
+      return {
+        fields: {
+          cover: this.randomCover()
+        }
+      }
+    }
   }
 
 </script>
