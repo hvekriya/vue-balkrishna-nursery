@@ -17,21 +17,69 @@
 
     <!-- Main Content -->
     <div class="container">
-      <div class="row">
-      </div>
+      <h2>Featured articles</h2>
+      <FeaturedArticles :fields="fields" />
+      <FAQ :fields="fields" />
+      <Banner :fields="fields" />
+      <Slider :fields="fields" />
     </div>
   </main>
 </template>
 
 <script>
+  import FeaturedArticles from '../components/FeaturedArticles'
+  import FAQ from '../components/FAQ'
+  import Banner from '../components/Banner'
+  import Slider from '../components/Slider'
   export default {
     name: 'Home',
+    components: {
+      FeaturedArticles,
+      FAQ,
+      Banner,
+      Slider
+    },
     data() {
       return {
+        documentId: '',
         fields: {
+          // title: null,
+          // content: null,
+          ctaLink: null,
+          ctaText: null,
+          slices: [],
           cover: this.randomCover()
         }
       }
+    },
+    methods: {
+      getContent() {
+        this.$prismic.client.getSingle('home')
+          .then((document) => {
+            if (document) {
+              this.documentId = document.id
+              // this.fields.title = document.data.title
+              // this.fields.content = document.data.content
+              this.fields.ctaLink = document.data.cta_link
+              this.fields.ctaText = document.data.cta_text
+              this.fields.slices = document.data.body;
+              if (document.data.cover.url) {
+                this.fields.cover = document.data.cover
+              }
+            } else {
+              this.$router.push({
+                name: 'not-found'
+              })
+            }
+          })
+      }
+    },
+    created() {
+      this.getContent()
+    },
+    beforeRouteUpdate(to, from, next) {
+      this.getContent()
+      next()
     }
   }
 
