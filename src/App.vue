@@ -36,7 +36,7 @@
   .wrapper {
     margin-left: auto;
     margin-right: auto;
-    font-family: Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Lora', 'Times New Roman', serif;
   }
 
   .title {

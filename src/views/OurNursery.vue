@@ -60,16 +60,6 @@
               this.fields.slices = document.data.body
               if (document.data.cover.url) {
                 this.fields.cover = document.data.cover
-              } else {
-                this.fields.cover = {
-                  "dimensions": {
-                    "width": 1191,
-                    "height": 1684
-                  },
-                  "alt": null,
-                  "copyright": null,
-                  "url": "https://balkrishna.cdn.prismic.io/balkrishna/a948adfe837dbfe0f4f1963c366b74f0950de6e6_logo.png"
-                }
               }
             } else {
               this.$router.push({

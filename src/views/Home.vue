@@ -17,11 +17,22 @@
 
     <!-- Main Content -->
     <div class="container">
+      <prismic-rich-text :field="fields.content" />
+      <!-- Slices -->
+      <!-- FAQ Tabs -->
+      <FAQ :fields="fields" />
       <h2>Featured articles</h2>
       <FeaturedArticles :fields="fields" />
       <FAQ :fields="fields" />
       <Banner :fields="fields" />
       <Slider :fields="fields" />
+
+      <div class="cta-wrapper">
+        <prismic-edit-button :documentId="documentId" />
+        <prismic-link :field="fields.ctaLink" class="cta">
+          {{ $prismic.richTextAsPlain(fields.ctaText) }}
+        </prismic-link>
+      </div>
     </div>
   </main>
 </template>
@@ -44,7 +55,7 @@
         documentId: '',
         fields: {
           // title: null,
-          // content: null,
+          content: null,
           ctaLink: null,
           ctaText: null,
           slices: [],
@@ -59,7 +70,7 @@
             if (document) {
               this.documentId = document.id
               // this.fields.title = document.data.title
-              // this.fields.content = document.data.content
+              this.fields.content = document.data.content
               this.fields.ctaLink = document.data.cta_link
               this.fields.ctaText = document.data.cta_text
               this.fields.slices = document.data.body;
