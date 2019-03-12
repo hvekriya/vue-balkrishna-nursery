@@ -9,6 +9,8 @@ npm install
 npm start
 ```
 
+NOTE: You will need access to Prismic.io
+
 Then you can access it at [http://localhost:8080](http://localhost:8080).
 
 ## Project setup
