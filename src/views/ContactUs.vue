@@ -19,17 +19,20 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="alert alert-success" role="alert" v-if="sent">
+            Thank you! We will be in touch soon!
+          </div>
+          <div class="alert alert-danger" role="alert" v-if="error">
+            Please try again!
+          </div>
           <p>Want to get in touch? Fill out the form below to send me a message and we will get back to you as soon as
             possible!</p>
-          <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
-          <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
-          <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-          <form id="contactForm" name="contact" method="POST" data-netlify="true">
+          <form id="contactForm" method="post" @submit.prevent="handleSubmit">
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
                 <label>Name</label>
                 <input type="text" class="form-control" placeholder="Name" id="name" required
-                  data-validation-required-message="Please enter your name.">
+                  data-validation-required-message="Please enter your name." v-model="form.name">
                 <p class="help-block text-danger"></p>
               </div>
             </div>
@@ -37,7 +40,7 @@
               <div class="form-group floating-label-form-group controls">
                 <label>Email Address</label>
                 <input type="email" class="form-control" placeholder="Email Address" id="email" required
-                  data-validation-required-message="Please enter your email address.">
+                  data-validation-required-message="Please enter your email address." v-model="form.email">
                 <p class="help-block text-danger"></p>
               </div>
             </div>
@@ -45,7 +48,7 @@
               <div class="form-group col-xs-12 floating-label-form-group controls">
                 <label>Phone Number</label>
                 <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required
-                  data-validation-required-message="Please enter your phone number.">
+                  data-validation-required-message="Please enter your phone number." v-model="form.phone">
                 <p class="help-block text-danger"></p>
               </div>
             </div>
@@ -53,7 +56,7 @@
               <div class="form-group floating-label-form-group controls">
                 <label>Message</label>
                 <textarea rows="5" class="form-control" placeholder="Message" id="message" required
-                  data-validation-required-message="Please enter a message."></textarea>
+                  data-validation-required-message="Please enter a message." v-model="form.message"></textarea>
                 <p class="help-block text-danger"></p>
               </div>
             </div>
@@ -76,9 +79,49 @@
       return {
         fields: {
           cover: this.randomCover()
-        }
+        },
+        form: {
+          name: '',
+          email: '',
+          phone: '',
+          message: ''
+        },
+        sent: false,
+        error: false,
       }
-    }
+    },
+    methods: {
+      encode(data) {
+        return Object.keys(data)
+          .map(
+            key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+          )
+          .join("&");
+      },
+      handleSubmit(e) {
+        fetch("/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: this.encode({
+              "form-name": "ask-question",
+              ...this.form
+            })
+          })
+          .then(() => {
+            this.sent = true
+            this.name = ''
+            this.email = ''
+            this.phone = ''
+            this.message = ''
+            this.error = false
+          })
+          .catch(() => {
+            this.error = true
+          });
+      }
+    },
   }
 
 </script>

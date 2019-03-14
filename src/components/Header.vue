@@ -36,6 +36,9 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/contact" @click.native="$scrollToTop">Contact</router-link>
           </li>
+          <!-- <li class="nav-item">
+            <router-link class="nav-link btn btn-outline-success" to="/contact" @click.native="$scrollToTop">Contact</router-link>
+          </li> -->
         </ul>
       </div>
     </div>
