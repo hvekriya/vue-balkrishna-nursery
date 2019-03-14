@@ -27,7 +27,8 @@
           </div>
           <p>Want to get in touch? Fill out the form below to send me a message and we will get back to you as soon as
             possible!</p>
-          <form id="contactForm" method="post" @submit.prevent="handleSubmit">
+          <form id="contactForm" name="contact" method="post" @submit.prevent="handleSubmit" data-netlify="true"
+            data-netlify-honeypot="bot-field">
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
                 <label>Name</label>
@@ -73,6 +74,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
   export default {
     name: 'ContactUs',
     data() {
@@ -98,17 +100,20 @@
           )
           .join("&");
       },
-      handleSubmit(e) {
-        fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: this.encode({
-              "form-name": "ask-question",
+      handleSubmit() {
+        const axiosConfig = {
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        };
+        axios.post(
+            "/contact",
+            this.encode({
+              "form-name": "contact",
               ...this.form
-            })
-          })
+            }),
+            axiosConfig
+          )
           .then(() => {
             this.sent = true
             this.name = ''
