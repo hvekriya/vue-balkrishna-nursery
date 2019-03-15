@@ -11,9 +11,16 @@ export default new Router({
   mode: 'history',
   routes: [{
       path: '/',
-      name: 'Home',
-      component: loadView('Home')
+      beforeEnter(to, from, next) {
+        // Put the full page url including the protocol http(s) below
+        window.location = 'https://www.sksswoolwich.org/nursery'
+      }
     },
+    // routes: [{
+    //     path: '/',
+    //     name: 'Home',
+    //     component: loadView('Home')
+    //   },
     // About
     {
       path: '/about',
