@@ -82,3 +82,7 @@ img::-moz-selection {
   background: no-repeat center center;
   @include background-cover;
 }
+
+ul {
+  margin-left: 20px;
+}
