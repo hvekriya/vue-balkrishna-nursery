@@ -6,11 +6,15 @@
       </div>
       <div class="copyright">
         <center>
-          <p>&copy; Bal Krishna Nursery {{ new Date().getFullYear() }}
+          <p>
+            &copy; Bal Krishna Nursery {{ new Date().getFullYear() }}
             <br>
-            <router-link to="/our-nursery/privacy-policy" @click.native="$scrollToTop">Privacy Policy</router-link>
+            <router-link
+              to="/our-nursery/privacy-policy"
+              @click.native="$scrollToTop"
+            >Privacy Policy</router-link>
           </p>
-          <img class="img-fluid" src="img/logo.svg" alt="logo">
+          <img class="img-fluid" src="img/logo.png" alt="logo">
         </center>
       </div>
     </div>
@@ -18,9 +22,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'MainFooter',
-
-  }
-
+export default {
+  name: "MainFooter"
+};
 </script>
