@@ -2,7 +2,7 @@
   <footer id="footer" class="footer">
     <div class="container-fluid">
       <div class="row">
-        <div id="map"></div>
+        <Map/>
       </div>
       <div class="copyright">
         <center>
@@ -23,7 +23,11 @@
 </template>
 
 <script>
+import Map from "./Map";
 export default {
-  name: "MainFooter"
+  name: "MainFooter",
+  components: {
+    Map
+  }
 };
 </script>

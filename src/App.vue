@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import Footer from "./components/MainFooter";
 import Header from "./components/Header";
+import Footer from "./components/MainFooter";
 
 export default {
   name: "App",
