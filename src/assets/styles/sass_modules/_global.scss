@@ -25,7 +25,7 @@ h6 {
 }
 
 a {
-  color: $gray-900;
+  color: $secondary;
   @include transition-all;
 
   &:focus,
@@ -34,7 +34,33 @@ a {
   }
 }
 
-blockquote {
+// .body-link {
+//   position: relative;
+//   z-index: 1;
+
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     z-index: -1;
+//     top: 0;
+//     bottom: 0;
+//     left: -0.25em;
+//     right: -0.25em;
+//     background-color: $primary;
+//     transform-origin: center right;
+//     transform: scaleX(0);
+//     transition: transform 0.5s ease-in-out;
+//   }
+//   &:hover {
+//     color: white;
+//   }
+//   &:hover::before {
+//     transform: scaleX(1);
+//     transform-origin: center left;
+//   }
+// }
+
+.nav blockquote {
   font-style: italic;
   color: $gray-600;
 }
@@ -93,4 +119,15 @@ ol {
 
 #accordian .card {
   margin: 10px 0 10px 0;
+}
+
+.hooper-navigation {
+  button {
+    @include transition-all;
+    background-color: $secondary;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

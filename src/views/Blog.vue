@@ -2,7 +2,10 @@
 
 <template>
   <div>
-    <header class="masthead" v-bind:style="{ backgroundImage: 'url(' + this.fields.cover.url + ')' }">
+    <header
+      class="masthead animated fadeInDown"
+      v-bind:style="{ backgroundImage: 'url(' + this.fields.cover.url + ')' }"
+    >
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -23,12 +26,18 @@
                 <h2 class="post-title" v-for="(title, index) in item.data.title">
                   <a :href="'/post/' + item.uid">{{ title.text }}</a>
                 </h2>
-                <p class="post-meta">{{ item.data.content | readMore(200, '...')  }} <a :href="'/post/' + item.uid">Read
-                    more</a></p>
+                <p class="post-meta">
+                  {{ item.data.content | readMore(200, '...') }}
+                  <a :href="'/post/' + item.uid">
+                    Read
+                    more
+                  </a>
+                </p>
                 <ul class="list-inline list-unstyled">
                   <li>
                     <span>
-                      <i class="glyphicon glyphicon-calendar"></i>Posted on {{item.first_publication_date | formatDate}}
+                      <i class="glyphicon glyphicon-calendar"></i>
+                      Posted on {{item.first_publication_date | formatDate}}
                     </span>
                   </li>
                 </ul>
@@ -43,41 +52,39 @@
 </template>
 
 <script>
-  export default {
-    name: 'Blog',
-    data() {
-      return {
-        posts: null,
-        fields: {
-          cover: this.randomCover()
-        }
+export default {
+  name: "Blog",
+  data() {
+    return {
+      posts: "",
+      fields: {
+        cover: this.randomCover()
       }
-    },
-    methods: {
-      getContent() {
-        this.$prismic.client.query(
-            this.$prismic.Predicates.at('document.type', 'blog'), {
-              orderings: '[my.blog.date desc]'
-            }
-          )
-          .then((document) => {
-            if (document) {
-              this.posts = document.results
-            } else {
-              this.$router.push({
-                name: 'not-found'
-              })
-            }
-          })
-      }
-    },
-    created() {
-      this.getContent()
-    },
-    beforeRouteUpdate(to, from, next) {
-      this.getContent()
-      next()
+    };
+  },
+  methods: {
+    getContent() {
+      this.$prismic.client
+        .query(this.$prismic.Predicates.at("document.type", "blog"), {
+          orderings: "[my.blog.date desc]"
+        })
+        .then(document => {
+          if (document) {
+            this.posts = document.results;
+          } else {
+            this.$router.push({
+              name: "not-found"
+            });
+          }
+        });
     }
+  },
+  created() {
+    this.getContent();
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.getContent();
+    next();
   }
-
+};
 </script>

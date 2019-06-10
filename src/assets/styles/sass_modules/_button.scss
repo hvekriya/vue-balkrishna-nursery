@@ -1,0 +1,55 @@
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+  &:hover,
+  &:focus,
+  &:active {
+    color: $white;
+    background-color: darken($primary, 7.5);
+    border-color: darken($primary, 7.5);
+  }
+}
+
+.btn {
+  font-size: 14px;
+  font-weight: 800;
+  padding: 15px 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 0;
+  z-index: 1;
+  position: relative;
+  color: white;
+  padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  background-color: $secondary;
+  overflow: hidden;
+  transition: color 0.2s ease-in-out;
+  @include sans-serif-font;
+
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: $primary;
+    transform-origin: center;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.25s ease-in-out;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+    background-color: $secondary;
+  }
+
+  &:hover::before {
+    transform: translate(-50%, -50%) scale(25);
+  }
+}

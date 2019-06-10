@@ -1,7 +1,10 @@
 <template>
   <main id="content" role="main">
     <!-- Page Header -->
-    <header class="masthead" v-bind:style="{ backgroundImage: 'url(' + this.fields.cover.url + ')' }">
+    <header
+      class="masthead animated fadeInDown"
+      v-bind:style="{ backgroundImage: 'url(' + this.fields.cover.url + ')' }"
+    >
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -18,25 +21,29 @@
     <!-- Main Content -->
     <div class="container">
       <div class="row">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdgWa4vX275F3OMxM2B5XXvX6FP3ndSgbfP9RqR6u_FyEObtQ/viewform?embedded=true"
-          width="640" height="856" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdgWa4vX275F3OMxM2B5XXvX6FP3ndSgbfP9RqR6u_FyEObtQ/viewform?embedded=true"
+          width="640"
+          height="856"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+        >Loading...</iframe>
       </div>
     </div>
-
   </main>
 </template>
 
 <script>
-  import axios from 'axios'
-  export default {
-    name: 'ContactUs',
-    data() {
-      return {
-        fields: {
-          cover: this.randomCover()
-        }
+import axios from "axios";
+export default {
+  name: "ContactUs",
+  data() {
+    return {
+      fields: {
+        cover: this.randomCover()
       }
-    }
+    };
   }
-
+};
 </script>

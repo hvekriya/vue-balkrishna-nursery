@@ -1,0 +1,12 @@
+@import "../../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
+
+.hamburger-box {
+  width: 25px;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 35px;
+  height: 3px;
+}

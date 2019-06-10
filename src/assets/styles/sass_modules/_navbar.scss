@@ -23,8 +23,8 @@
   }
 
   .navbar-nav {
-    >li.nav-item {
-      >a {
+    > li.nav-item {
+      > a {
         font-size: 12px;
         font-weight: 800;
         letter-spacing: 1px;
@@ -47,19 +47,19 @@
 
       &:focus,
       &:hover {
-        color: fade-out($white, .2);
+        color: fade-out($white, 0.2);
       }
     }
 
     .navbar-nav {
-      >li.nav-item {
-        >a {
+      > li.nav-item {
+        > a {
           padding: 10px 20px;
           color: $white;
 
           &:focus,
           &:hover {
-            color: fade-out($white, .2);
+            color: fade-out($white, 0.2);
           }
 
           &.router-link-exact-active {
@@ -89,8 +89,8 @@
       -webkit-transition: -webkit-transform 0.2s;
       -moz-transition: -moz-transform 0.2s;
       transition: transform 0.2s;
-      border-bottom: 1px solid darken($white, .05);
-      background-color: fade-out($white, .1);
+      border-bottom: 1px solid darken($white, 0.05);
+      background-color: fade-out($white, 0.1);
 
       .navbar-brand {
         color: $gray-900;
@@ -102,8 +102,8 @@
       }
 
       .navbar-nav {
-        >li.nav-item {
-          >a {
+        > li.nav-item {
+          > a {
             color: $gray-900;
 
             &:focus,
@@ -111,8 +111,7 @@
               color: $primary;
             }
 
-            &.router-link-exact-active,
-            &.router-link-active {
+            &.router-link-exact-active {
               color: $primary;
             }
           }
