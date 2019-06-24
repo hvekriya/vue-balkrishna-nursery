@@ -9,4 +9,12 @@
 .hamburger-inner::after {
   width: 35px;
   height: 3px;
+  background-color: white;
+}
+
+.hamburger--spring.is-active .hamburger-inner::before {
+  background-color: white;
+}
+.hamburger--spring.is-active .hamburger-inner::after {
+  background-color: white;
 }

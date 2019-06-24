@@ -1,45 +1,36 @@
 <template>
-  <main id="content" role="main">
-    <!-- Page Header -->
+  <div>
     <header
-      class="masthead animated fadeInDown"
-      v-bind:style="{ backgroundImage: 'url(' + this.fields.cover.url + ')' }"
-    >
-      <div class="overlay"></div>
+      class="masthead animated fadeInDown home-page"
+      v-bind:style="{backgroundImage: 'url(' + this.fields.cover.url + ')'}"
+      style="background-size:intitial"
+    ></header>
+    <main id="content" role="main">
+      <!-- Full Page Image Header with Vertically Centered Content -->
+
+      <!-- Main Content -->
       <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="site-heading">
-              <h1>Bal Krishna Nursery</h1>
-              <span class="subheading">by Woolwich Temple</span>
-            </div>
-          </div>
+        <prismic-rich-text :field="fields.content"/>
+        <!-- Slices -->
+        <!-- FAQ Tabs -->
+        <FAQ :fields="fields"/>
+        <!-- <h2>Featured articles</h2> -->
+        <FeaturedArticles :fields="fields"/>
+        <FAQ :fields="fields"/>
+        <Banner :fields="fields"/>
+        <Slider :fields="fields"/>
+        <ImageSlice :fields="fields"/>
+
+        <div class="cta-wrapper">
+          <prismic-edit-button :documentId="documentId"/>
+          <prismic-link
+            :field="fields.ctaLink"
+            class="cta"
+          >{{ $prismic.richTextAsPlain(fields.ctaText) }}</prismic-link>
         </div>
       </div>
-    </header>
-
-    <!-- Main Content -->
-    <div class="container">
-      <prismic-rich-text :field="fields.content"/>
-      <!-- Slices -->
-      <!-- FAQ Tabs -->
-      <FAQ :fields="fields"/>
-      <!-- <h2>Featured articles</h2> -->
-      <FeaturedArticles :fields="fields"/>
-      <FAQ :fields="fields"/>
-      <Banner :fields="fields"/>
-      <Slider :fields="fields"/>
-      <ImageSlice :fields="fields"/>
-
-      <div class="cta-wrapper">
-        <prismic-edit-button :documentId="documentId"/>
-        <prismic-link
-          :field="fields.ctaLink"
-          class="cta"
-        >{{ $prismic.richTextAsPlain(fields.ctaText) }}</prismic-link>
-      </div>
-    </div>
-  </main>
+    </main>
+  </div>
 </template>
 
 <script>

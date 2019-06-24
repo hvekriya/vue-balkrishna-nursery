@@ -1,6 +1,6 @@
 <template>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow" id="mainNav">
     <div class="container">
       <a class="navbar-brand" href="/">Bal Krishna Nursery</a>
       <button
@@ -23,9 +23,6 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/" @click.native="$scrollToTop">Home</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/about" @click.native="$scrollToTop">About</router-link>
-          </li>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -36,6 +33,11 @@
               aria-expanded="false"
             >Our Nursery</a>
             <div class="dropdown-menu">
+              <router-link
+                class="dropdown-item"
+                to="/our-nursery/our-values"
+                @click.native="$scrollToTop"
+              >Our values</router-link>
               <router-link
                 class="dropdown-item"
                 to="/our-nursery/curriculum"
@@ -54,6 +56,11 @@
                 Fees
                 and funding
               </router-link>
+              <router-link
+                class="dropdown-item"
+                to="/our-nursery/meet-the-team"
+                @click.native="$scrollToTop"
+              >Meet the team</router-link>
             </div>
           </li>
           <li class="nav-item">

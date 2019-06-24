@@ -1,9 +1,6 @@
 <template>
   <footer id="footer" class="footer">
     <div class="container-fluid">
-      <div class="row">
-        <Map/>
-      </div>
       <div class="copyright">
         <center>
           <p>
@@ -15,7 +12,10 @@
               class="body-link"
             >Privacy Policy</router-link>
           </p>
-          <img class="img-fluid" src="img/logo.svg" alt="logo">
+          <div class="img-fluid"> 
+            
+          </div>
+          <img class="img-fluid" src="img/logo.png" alt="logo">
         </center>
       </div>
     </div>
@@ -23,11 +23,7 @@
 </template>
 
 <script>
-import Map from "./Map";
 export default {
-  name: "MainFooter",
-  components: {
-    Map
-  }
+  name: "MainFooter"
 };
 </script>

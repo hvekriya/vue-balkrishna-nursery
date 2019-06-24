@@ -20,7 +20,7 @@
 
   &.active,
   &:active,
-  .open>&.dropdown-toggle {
+  .open > &.dropdown-toggle {
     color: $color;
     border-color: darken($border, 12%);
     background-color: darken($background, 10%);
@@ -36,14 +36,13 @@
 
   &.active,
   &:active,
-  .open>&.dropdown-toggle {
+  .open > &.dropdown-toggle {
     background-image: none;
   }
 
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-
     &.focus,
     &:focus,
     &:hover {
@@ -72,9 +71,27 @@
 }
 
 @mixin serif-font() {
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: "Lora", "Times New Roman", serif;
 }
 
 @mixin sans-serif-font() {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+// Mixin to handle responsive break points
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  } @else if $media == medium-screens {
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $media == wide-screens {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  }
 }

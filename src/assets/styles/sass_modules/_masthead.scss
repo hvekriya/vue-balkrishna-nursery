@@ -1,12 +1,22 @@
 // Styling for the masthead
 header.masthead {
-  // TIP: Background images are set within the HTML using inline CSS!
-  margin-bottom: 50px;
-  background: no-repeat center center;
-  background-color: $gray-600;
-  background-attachment: scroll;
-  position: relative;
+  background-color: $white;
+  height: 60vh;
+  min-height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 60px;
+  margin-bottom: 40px;
   @include background-cover;
+
+  &.home-page {
+    background-size: initial;
+    background-size: 40%;
+
+    @include respond-to(handhelds) {
+      background-size: 100%;
+    }
+  }
 
   .overlay {
     position: absolute;
@@ -25,7 +35,7 @@ header.masthead {
     color: white;
 
     @media only screen and (min-width: 768px) {
-      padding: 200px 0;
+      padding: 160px 0;
     }
   }
 

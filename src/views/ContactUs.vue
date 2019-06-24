@@ -31,13 +31,22 @@
         >Loading...</iframe>
       </div>
     </div>
+    <div class="container-fluid mt-4">
+      <div class="row">
+        <Map/>
+      </div>
+    </div>
   </main>
 </template>
 
 <script>
 import axios from "axios";
+import Map from "../components/Map";
 export default {
   name: "ContactUs",
+  components: {
+    Map
+  },
   data() {
     return {
       fields: {

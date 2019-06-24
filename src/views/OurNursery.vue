@@ -26,6 +26,10 @@
           class="cta"
         >{{ $prismic.richTextAsPlain(fields.ctaText) }}</prismic-link>
       </div>
+      <!-- Slices -->
+
+      <Team :fields="fields"/>
+      <ImageSlice :fields="fields"/>
     </div>
     <Banner :fields="fields"/>
   </div>
@@ -33,10 +37,15 @@
 
 <script>
 import Banner from "../components/Banner";
+import Team from "../components/Team";
+import ImageSlice from "../components/ImageSlice";
+
 export default {
   name: "OurNursery",
   components: {
-    Banner
+    Banner,
+    Team,
+    ImageSlice
   },
   data() {
     return {
