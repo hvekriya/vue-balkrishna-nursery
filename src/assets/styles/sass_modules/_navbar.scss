@@ -11,6 +11,10 @@
     font-family: Samarkan;
     font-weight: normal;
     font-style: normal;
+
+    @include respond-to(handhelds) {
+      font-size: x-large;
+    }
   }
 
   .navbar-toggler {
