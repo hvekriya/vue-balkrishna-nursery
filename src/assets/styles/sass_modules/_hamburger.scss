@@ -1,7 +1,10 @@
 @import "../../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
 
 .hamburger-box {
-  width: 25px;
+  width: 32px;
+  &:focus {
+    outline: none;
+  }
 }
 
 .hamburger-inner,
@@ -17,4 +20,8 @@
 }
 .hamburger--spring.is-active .hamburger-inner::after {
   background-color: white;
+}
+
+.navbar-toggler:focus {
+  outline: none;
 }

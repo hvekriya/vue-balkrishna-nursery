@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header/>
-    <router-view/>
-    <Footer/>
+    <Header />
+    <router-view />
+    <Footer />
   </div>
 </template>
 
@@ -16,9 +16,12 @@ export default {
     Header,
     Footer
   },
+
   watch: {
     $route() {
       $(".navbar-collapse").collapse("hide");
+      $(".navbar-toggler").removeClass("is-active");
+      $(".navbar-toggler").removeClass("collapsed");
     }
   }
 };

@@ -13,6 +13,7 @@
     font-style: normal;
 
     @include respond-to(handhelds) {
+      padding: 0 !important;
       font-size: x-large;
     }
   }
@@ -53,7 +54,7 @@
 
         &.router-link-exact-active {
           color: $secondary;
-          border-bottom: 2px solid $secondary
+          border-bottom: 2px solid $secondary;
         }
       }
     }
