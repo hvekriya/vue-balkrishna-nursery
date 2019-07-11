@@ -18,9 +18,7 @@
                     :aria-controls="'#collapse-' + index"
                     class="collapsed"
                   >
-                    <h5>
-                      <prismic-rich-text :field="item.question" class="card-title mb-0" />
-                    </h5>
+                    <h5>{{item.question[0].text}}</h5>
                   </a>
                 </div>
               </div>
