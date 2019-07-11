@@ -3,7 +3,7 @@
     <template v-for="(slice, index) in fields.slices">
       <template v-if="slice.slice_type === 'text'">
         <!-- Section heading -->
-        <prismic-rich-text :field="slice.primary.intro"/>
+        <prismic-rich-text :field="slice.primary.intro" />
         <!-- Main card -->
         <div class="bd-example" data-example-id>
           <div id="accordion" role="tablist" aria-multiselectable="true">
@@ -18,7 +18,9 @@
                     :aria-controls="'#collapse-' + index"
                     class="collapsed"
                   >
-                    <prismic-rich-text :field="item.question" class="card-title mb-0"/>
+                    <h5>
+                      <prismic-rich-text :field="item.question" class="card-title mb-0" />
+                    </h5>
                   </a>
                 </div>
               </div>
@@ -30,7 +32,7 @@
                 aria-expanded="false"
               >
                 <div class="card-body">
-                  <prismic-rich-text :field="item.answer" class="card-text text-black-50"/>
+                  <prismic-rich-text :field="item.answer" class="card-text text-black-50" />
                 </div>
               </div>
             </div>
