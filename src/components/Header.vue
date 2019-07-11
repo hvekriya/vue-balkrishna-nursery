@@ -26,6 +26,7 @@
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
+              :class="{'router-link-exact-active':subIsActive('/our-nursery')}"
               data-toggle="dropdown"
               href="#"
               role="button"
@@ -37,7 +38,7 @@
                 class="dropdown-item"
                 to="/our-nursery/our-values"
                 @click.native="$scrollToTop"
-              >Our values</router-link>
+              >Our vision and values</router-link>
               <router-link
                 class="dropdown-item"
                 to="/our-nursery/curriculum"
@@ -92,6 +93,13 @@ export default {
   methods: {
     toggleNav() {
       this.menuIsActive = !this.menuIsActive;
+    },
+    subIsActive(input) {
+      console.log(input);
+      const paths = Array.isArray(input) ? input : [input];
+      return paths.some(path => {
+        return this.$route.path.indexOf(path) === 0;
+      });
     }
   }
 };

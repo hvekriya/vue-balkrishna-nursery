@@ -33,7 +33,7 @@
     </div>
     <div class="container-fluid mt-4">
       <div class="row">
-        <Map/>
+        <Map />
       </div>
     </div>
   </main>

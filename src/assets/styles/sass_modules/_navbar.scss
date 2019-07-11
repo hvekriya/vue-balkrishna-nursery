@@ -57,6 +57,10 @@
           border-bottom: 2px solid $secondary;
         }
       }
+      .dropdown-item.router-link-exact-active.router-link-active {
+        color: #22b4aa;
+        border-bottom: 2px solid #22b4aa;
+      }
     }
   }
 }
