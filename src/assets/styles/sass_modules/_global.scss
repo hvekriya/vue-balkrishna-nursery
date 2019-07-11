@@ -30,6 +30,10 @@ h3 {
   margin-top: 2.5rem;
 }
 
+h1 {
+  font-size: 5.6vh;
+}
+
 a {
   color: $secondary;
   @include transition-all;

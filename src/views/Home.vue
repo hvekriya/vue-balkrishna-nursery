@@ -1,28 +1,29 @@
 <template>
   <div>
-    <header
+    <!-- <header
       class="masthead animated fadeInDown home-page"
       v-bind:style="{backgroundImage: 'url(' + this.fields.cover.url + ')'}"
       style="background-size:intitial"
-    ></header>
+    ></header>-->
     <main id="content" role="main">
       <!-- Full Page Image Header with Vertically Centered Content -->
+      <img class="img-fluid home-cover animated fadeInDown" :src="this.fields.cover.url" />
 
       <!-- Main Content -->
       <div class="container">
-        <prismic-rich-text :field="fields.content"/>
+        <prismic-rich-text :field="fields.content" />
         <!-- Slices -->
         <!-- FAQ Tabs -->
-        <FAQ :fields="fields"/>
+        <FAQ :fields="fields" />
         <!-- <h2>Featured articles</h2> -->
-        <FeaturedArticles :fields="fields"/>
-        <FAQ :fields="fields"/>
-        <Banner :fields="fields"/>
-        <Slider :fields="fields"/>
-        <ImageSlice :fields="fields"/>
+        <FeaturedArticles :fields="fields" />
+        <FAQ :fields="fields" />
+        <Banner :fields="fields" />
+        <Slider :fields="fields" />
+        <ImageSlice :fields="fields" />
 
         <div class="cta-wrapper">
-          <prismic-edit-button :documentId="documentId"/>
+          <prismic-edit-button :documentId="documentId" />
           <prismic-link
             :field="fields.ctaLink"
             class="cta"
@@ -32,6 +33,7 @@
     </main>
   </div>
 </template>
+
 
 <script>
 import FeaturedArticles from "../components/FeaturedArticles";

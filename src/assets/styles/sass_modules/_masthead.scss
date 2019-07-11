@@ -11,14 +11,16 @@ header.masthead {
   @include respond-to(handhelds) {
     height: 40vh;
   }
-  &.home-page {
-    background-size: initial;
-    background-size: 40%;
+  // &.home-page {
+  //   background-size: initial;
+  //   background-size: 100%;
+  //   height: 84vh;
 
-    @include respond-to(handhelds) {
-      background-size: 100%;
-    }
-  }
+  //   @include respond-to(handhelds) {
+  //     height: 0;
+  //     background-size: 100%;
+  //   }
+  // }
 
   .overlay {
     position: absolute;
@@ -105,4 +107,8 @@ header.masthead {
       }
     }
   }
+}
+
+.home-cover {
+  margin-top: 70px;
 }
