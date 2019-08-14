@@ -21,14 +21,36 @@
     <!-- Main Content -->
     <div class="container">
       <div class="row">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSdgWa4vX275F3OMxM2B5XXvX6FP3ndSgbfP9RqR6u_FyEObtQ/viewform?embedded=true"
-          width="640"
-          height="856"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-        >Loading...</iframe>
+        <div class="col-md-8 col-lg-8">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdgWa4vX275F3OMxM2B5XXvX6FP3ndSgbfP9RqR6u_FyEObtQ/viewform?embedded=true"
+            width="640"
+            height="856"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+          >Loading...</iframe>
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <form>
+            <legend>
+              <i class="fas fa-map-marker-alt"></i> Our Location
+            </legend>
+            <address>
+              <strong>Bal Krishna Nursery</strong>
+              <br />SKSS Temple Woolwich,
+              <br />St. Margarets Grove,
+              <br />London, SE18 7RL
+              <br />
+              <br />
+              <i class="fas fa-phone"></i>
+              <a href="tel:+442037456070" itemprop="telephone">020 3745 6070</a>
+              <br />
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:info@balkrishna.org">info@balkrishna.org</a>
+            </address>
+          </form>
+        </div>
       </div>
     </div>
     <div class="container-fluid mt-4">
