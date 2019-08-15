@@ -161,3 +161,13 @@ ol {
 .block-img img {
   width: 100%;
 }
+
+.contact-form {
+  width: 640px;
+  height: 856px;
+
+  @include respond-to(handhelds) {
+    width: 350px;
+    height: 880px;
+  }
+}

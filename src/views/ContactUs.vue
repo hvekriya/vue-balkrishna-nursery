@@ -24,8 +24,7 @@
         <div class="col-md-8 col-lg-8">
           <iframe
             src="https://docs.google.com/forms/d/e/1FAIpQLSdgWa4vX275F3OMxM2B5XXvX6FP3ndSgbfP9RqR6u_FyEObtQ/viewform?embedded=true"
-            width="640"
-            height="856"
+            class="contact-form"
             frameborder="0"
             marginheight="0"
             marginwidth="0"
