@@ -62,6 +62,11 @@
                 to="/our-nursery/meet-the-team"
                 @click.native="$scrollToTop"
               >Meet the team</router-link>
+              <router-link
+                class="dropdown-item"
+                to="/our-nursery/vacancy"
+                @click.native="$scrollToTop"
+              >Vacancy</router-link>
             </div>
           </li>
           <li class="nav-item">
