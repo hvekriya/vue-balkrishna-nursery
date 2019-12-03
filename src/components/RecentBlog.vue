@@ -1,46 +1,26 @@
-<!-- Create file src/views/Page.vue -->
-
 <template>
-  <div>
-    <header
-      class="masthead animated fadeInDown"
-      v-bind:style="{ backgroundImage: 'url(' + this.fields.cover.url + ')' }"
-    >
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="site-heading">
-              <h1>Blog</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
     <div class="wrapper container">
+        <h2>Our recent blog articles</h2>
+        <br>
       <div class="container">
         <div class="row">
           <div class="mx-auto">
             <div class="post" v-for="(item, index) in posts" :key="'posts-' + index">
               <div class="post-preview">
-                <h2 class="post-title" v-for="(title, index) in item.data.title">
+                <h5 class="post-title" v-for="(title, index) in item.data.title">
                   <a :href="'/post/' + item.uid">{{ title.text }}</a>
-                </h2>
+                </h5>
                 <p class="post-meta">
                   {{ item.data.content | readMore(200, '...') }}
-                  <a :href="'/post/' + item.uid">
+                  <a :href="'/post/' + item.uid" class="text-primary">
                     Read
                     more
                   </a>
                 </p>
-                <ul class="list-inline list-unstyled">
-                  <li>
-                    <span>
-                      <i class="glyphicon glyphicon-calendar"></i>
-                      Posted on {{item.first_publication_date | formatDate}}
-                    </span>
-                  </li>
-                </ul>
+                <p class="post-meta">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                    Posted on {{item.first_publication_date | formatDate}}
+                </p>
               </div>
               <hr>
             </div>
@@ -48,12 +28,12 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
 export default {
-  name: "Blog",
+  name: "RecentBlog",
+
   data() {
     return {
       posts: "",
@@ -86,5 +66,5 @@ export default {
     this.getContent();
     next();
   }
-};
+}
 </script>

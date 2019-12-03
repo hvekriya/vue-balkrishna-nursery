@@ -15,7 +15,7 @@
           <div class="img-fluid"> 
             
           </div>
-          <img class="img-fluid" src="img/logo.png" alt="logo">
+          <img class="img-fluid" src="/img/logo.png" alt="logo">
         </center>
       </div>
     </div>

@@ -17,6 +17,7 @@
         <FAQ :fields="fields" />
         <!-- <h2>Featured articles</h2> -->
         <FeaturedArticles :fields="fields" />
+        <RecentArticles/>
         <FAQ :fields="fields" />
         <Banner :fields="fields" />
         <Slider :fields="fields" />
@@ -41,6 +42,7 @@ import FAQ from "../components/FAQ";
 import Banner from "../components/Banner";
 import Slider from "../components/Slider";
 import ImageSlice from "../components/ImageSlice";
+import RecentArticles from "../components/RecentBlog"
 export default {
   name: "Home",
   components: {
@@ -48,7 +50,8 @@ export default {
     FAQ,
     Banner,
     Slider,
-    ImageSlice
+    ImageSlice,
+    RecentArticles
   },
   data() {
     return {
