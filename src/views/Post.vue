@@ -26,6 +26,7 @@
           class="cta"
         >{{ $prismic.richTextAsPlain(fields.ctaText) }}</prismic-link>
       </div>
+      <div class="sharethis-inline-reaction-buttons"></div>
       <hr>
       <h5>Posted on {{fields.postedDate | formatDate }}</h5>
       <hr>
