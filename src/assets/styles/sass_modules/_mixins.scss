@@ -1,97 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
 // Mixins
 // Bootstrap Button Variant
-@mixin button-variant($color, $background, $border) {
-  color: $color;
-  border-color: $border;
-  background-color: $background;
-
-  &.focus,
-  &:focus {
+@mixin button-variant($color,
+$background,
+$border) {
     color: $color;
-    border-color: darken($border, 25%);
-    background-color: darken($background, 10%);
-  }
-
-  &:hover {
-    color: $color;
-    border-color: darken($border, 12%);
-    background-color: darken($background, 10%);
-  }
-
-  &.active,
-  &:active,
-  .open > &.dropdown-toggle {
-    color: $color;
-    border-color: darken($border, 12%);
-    background-color: darken($background, 10%);
-
+    border-color: $border;
+    background-color: $background;
     &.focus,
-    &:focus,
-    &:hover {
-      color: $color;
-      border-color: darken($border, 25%);
-      background-color: darken($background, 17%);
+    &:focus {
+        color: $color;
+        border-color: darken($border, 25%);
+        background-color: darken($background, 10%);
     }
-  }
-
-  &.active,
-  &:active,
-  .open > &.dropdown-toggle {
-    background-image: none;
-  }
-
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    &.focus,
-    &:focus,
     &:hover {
-      border-color: $border;
-      background-color: $background;
+        color: $color;
+        border-color: darken($border, 12%);
+        background-color: darken($background, 10%);
     }
-  }
-
-  .badge {
-    color: $background;
-    background-color: $color;
-  }
+    &.active,
+    &:active,
+    .open>&.dropdown-toggle {
+        color: $color;
+        border-color: darken($border, 12%);
+        background-color: darken($background, 10%);
+        &.focus,
+        &:focus,
+        &:hover {
+            color: $color;
+            border-color: darken($border, 25%);
+            background-color: darken($background, 17%);
+        }
+    }
+    &.active,
+    &:active,
+    .open>&.dropdown-toggle {
+        background-image: none;
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &.focus,
+        &:focus,
+        &:hover {
+            border-color: $border;
+            background-color: $background;
+        }
+    }
+    .badge {
+        color: $background;
+        background-color: $color;
+    }
 }
 
 @mixin transition-all() {
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
 }
 
 @mixin background-cover() {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 @mixin serif-font() {
-  font-family: "Lora", "Times New Roman", serif;
+    font-family: "Lora", "Times New Roman", serif;
 }
 
 @mixin sans-serif-font() {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Dosis', sans-serif;
 }
 
 // Mixin to handle responsive break points
-
 @mixin respond-to($media) {
-  @if $media == handhelds {
-    @media only screen and (max-width: 768px) {
-      @content;
+    @if $media==handhelds {
+        @media only screen and (max-width: 768px) {
+            @content;
+        }
     }
-  } @else if $media == medium-screens {
-    @media only screen and (min-width: 769px) and (max-width: 1024px) {
-      @content;
+    @else if $media==medium-screens {
+        @media only screen and (min-width: 769px) and (max-width: 1024px) {
+            @content;
+        }
     }
-  } @else if $media == wide-screens {
-    @media only screen and (min-width: 1024px) {
-      @content;
+    @else if $media==wide-screens {
+        @media only screen and (min-width: 1024px) {
+            @content;
+        }
     }
-  }
 }
