@@ -18,8 +18,8 @@
       </div>
     </header>
     <div class="wrapper container">
-      <prismic-edit-button :documentId="documentId"/>
-      <prismic-rich-text :field="fields.content" class="description"/>
+      <prismic-edit-button :documentId="documentId" />
+      <prismic-rich-text :field="fields.content" class="description" />
       <div class="cta-wrapper">
         <prismic-link
           :field="fields.ctaLink"
@@ -27,9 +27,9 @@
         >{{ $prismic.richTextAsPlain(fields.ctaText) }}</prismic-link>
       </div>
       <div class="sharethis-inline-reaction-buttons"></div>
-      <hr>
+      <hr />
       <h5>Posted on {{fields.postedDate | formatDate }}</h5>
-      <hr>
+      <hr />
     </div>
   </div>
 </template>
@@ -72,9 +72,12 @@ export default {
     }
   },
   mounted() {
-      let shareThisScript = document.createElement('script')
-      shareThisScript.setAttribute('src', 'https://platform-api.sharethis.com/js/sharethis.js#property=5de6a7f0617c910012a0156b&product=sticky-share-buttons&cms=sop')
-      document.head.appendChild(shareThisScript)
+    let shareThisScript = document.createElement("script");
+    shareThisScript.setAttribute(
+      "src",
+      "https://platform-api.sharethis.com/js/sharethis.js#property=5de6a7f0617c910012a0156b&product=sticky-share-buttons&cms=sop"
+    );
+    document.head.appendChild(shareThisScript);
   },
   created() {
     this.getContent(this.$route.params.uid);

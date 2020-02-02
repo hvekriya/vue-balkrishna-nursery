@@ -42,7 +42,7 @@
                   </li>
                 </ul>
               </div>
-              <hr>
+              <hr />
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@ export default {
     getContent() {
       this.$prismic.client
         .query(this.$prismic.Predicates.at("document.type", "blog"), {
-          orderings: "[my.blog.date desc]"
+          orderings: "[document.first_publication_date desc]"
         })
         .then(document => {
           if (document) {
