@@ -69,9 +69,9 @@
               >Vacancy</router-link>
               <router-link
                 class="dropdown-item"
-                to="/our-nursery/privacy-policy"
+                to="/our-nursery/policies"
                 @click.native="$scrollToTop"
-              >Privacy Policy</router-link>
+              >Policies</router-link>
             </div>
           </li>
           <li class="nav-item">
