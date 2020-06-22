@@ -83,6 +83,15 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/contact" @click.native="$scrollToTop">Contact</router-link>
           </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="https://www.facebook.com/Bal-Krishna-Nursery-101302974825134/"
+            >
+              Follow us
+              <i class="fab fa-facebook-square"></i>
+            </a>
+          </li>
           <!-- <li class="nav-item">
             <router-link class="nav-link btn btn-outline-success" to="/contact" @click.native="$scrollToTop">Contact</router-link>
           </li>-->
