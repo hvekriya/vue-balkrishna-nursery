@@ -81,6 +81,13 @@
             <router-link class="nav-link" to="/blog" @click.native="$scrollToTop">Blog</router-link>
           </li>
           <li class="nav-item">
+            <router-link
+              class="nav-link"
+              to="/our-nursery/covid-19"
+              @click.native="$scrollToTop"
+            >COVID-19</router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link" to="/contact" @click.native="$scrollToTop">Contact</router-link>
           </li>
           <li class="nav-item">

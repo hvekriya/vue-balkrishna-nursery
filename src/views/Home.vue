@@ -17,7 +17,7 @@
         <FAQ :fields="fields" />
         <!-- <h2>Featured articles</h2> -->
         <FeaturedArticles :fields="fields" />
-        <RecentArticles/>
+        <RecentArticles />
         <FAQ :fields="fields" />
         <Banner :fields="fields" />
         <Slider :fields="fields" />
@@ -42,7 +42,7 @@ import FAQ from "../components/FAQ";
 import Banner from "../components/Banner";
 import Slider from "../components/Slider";
 import ImageSlice from "../components/ImageSlice";
-import RecentArticles from "../components/RecentBlog"
+import RecentArticles from "../components/RecentBlog";
 export default {
   name: "Home",
   components: {
@@ -69,6 +69,7 @@ export default {
   methods: {
     getContent() {
       this.$prismic.client.getSingle("home").then(document => {
+        console.log(document);
         if (document) {
           this.documentId = document.id;
           // this.fields.title = document.data.title
