@@ -8,6 +8,13 @@
     <main id="content" role="main">
       <!-- Full Page Image Header with Vertically Centered Content -->
       <img class="img-fluid home-cover animated fadeInDown" :src="this.fields.cover.url" />
+      <div class="scrolling-text">
+        <h2>
+          <span>REGISTRATION OPEN FOR NEW PLACES</span>
+          <span>REGISTRATION OPEN FOR NEW PLACES</span>
+          <span>REGISTRATION OPEN FOR NEW PLACES</span>
+        </h2>
+      </div>
 
       <!-- Main Content -->
       <div class="container">
@@ -51,7 +58,7 @@ export default {
     Banner,
     Slider,
     ImageSlice,
-    RecentArticles
+    RecentArticles,
   },
   data() {
     return {
@@ -62,13 +69,13 @@ export default {
         ctaLink: "",
         ctaText: "",
         slices: [],
-        cover: "" // this.randomCover()
-      }
+        cover: "", // this.randomCover()
+      },
     };
   },
   methods: {
     getContent() {
-      this.$prismic.client.getSingle("home").then(document => {
+      this.$prismic.client.getSingle("home").then((document) => {
         console.log(document);
         if (document) {
           this.documentId = document.id;
@@ -82,11 +89,11 @@ export default {
           }
         } else {
           this.$router.push({
-            name: "not-found"
+            name: "not-found",
           });
         }
       });
-    }
+    },
   },
   created() {
     this.getContent();
@@ -94,6 +101,6 @@ export default {
   beforeRouteUpdate(to, from, next) {
     this.getContent();
     next();
-  }
+  },
 };
 </script>
