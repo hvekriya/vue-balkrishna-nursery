@@ -12,7 +12,6 @@
         <h2>
           <span>REGISTRATION OPEN FOR NEW PLACES</span>
           <span>REGISTRATION OPEN FOR NEW PLACES</span>
-          <span>REGISTRATION OPEN FOR NEW PLACES</span>
         </h2>
       </div>
 
