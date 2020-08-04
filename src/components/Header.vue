@@ -64,6 +64,11 @@
               >Meet the team</router-link>
               <router-link
                 class="dropdown-item"
+                to="/our-nursery/i-connect-and-parent-zone"
+                @click.native="$scrollToTop"
+              >iConnect and ParentZone</router-link>
+              <router-link
+                class="dropdown-item"
                 to="/our-nursery/vacancy"
                 @click.native="$scrollToTop"
               >Vacancy</router-link>
@@ -113,7 +118,8 @@ export default {
   name: "Header",
   data() {
     return {
-      menuIsActive: false
+      menuIsActive: false,
+      ourNurseryMenu: "",
     };
   },
   methods: {
@@ -123,10 +129,33 @@ export default {
     subIsActive(input) {
       console.log(input);
       const paths = Array.isArray(input) ? input : [input];
-      return paths.some(path => {
+      return paths.some((path) => {
         return this.$route.path.indexOf(path) === 0;
       });
-    }
-  }
+    },
+    getOurNurseryMenu() {
+      this.$prismic.client
+        .query(
+          this.$prismic.Predicates.at("document.type", "our-nursery")
+          // , {
+          //   orderings: "[document.first_publication_date desc]",
+          // }
+        )
+        .then((document) => {
+          if (document) {
+            this.ourNurseryMenu = document.results;
+          } else {
+            this.ourNurseryMenu = "";
+          }
+        });
+    },
+  },
+  created() {
+    this.getOurNurseryMenu();
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.getOurNurseryMenu();
+    next();
+  },
 };
 </script>
