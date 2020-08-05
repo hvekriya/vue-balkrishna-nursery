@@ -22,7 +22,7 @@ export default new Router({
             component: loadView("OurNursery")
         },
         {
-            path: "/parents",
+            path: "/parents/:uid",
             name: "Parents",
             component: loadView("Parents")
         },

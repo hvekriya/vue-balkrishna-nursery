@@ -34,6 +34,14 @@
               aria-expanded="false"
             >Our Nursery</a>
             <div class="dropdown-menu">
+              <!-- <router-link
+                v-for="(item, index) in ourNurseryMenu"
+                :key="'menu-' + index"
+                class="dropdown-item"
+                :to="'/our-nursery/' + item.uid"
+                @click.native="$scrollToTop"
+              >{{item.data.title[0].text}}</router-link>-->
+
               <router-link
                 class="dropdown-item"
                 to="/our-nursery/our-values"
@@ -64,11 +72,6 @@
               >Meet the team</router-link>
               <router-link
                 class="dropdown-item"
-                to="/our-nursery/i-connect-and-parent-zone"
-                @click.native="$scrollToTop"
-              >iConnect and ParentZone</router-link>
-              <router-link
-                class="dropdown-item"
                 to="/our-nursery/vacancy"
                 @click.native="$scrollToTop"
               >Vacancy</router-link>
@@ -79,8 +82,25 @@
               >Policies</router-link>
             </div>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/parents" @click.native="$scrollToTop">Parents</router-link>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              :class="{'router-link-exact-active':subIsActive('/parents')}"
+              data-toggle="dropdown"
+              href="#"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >Parents</a>
+            <div class="dropdown-menu">
+              <router-link
+                v-for="(item, index) in parentsMenu"
+                :key="'menu-' + index"
+                class="dropdown-item"
+                :to="'/parents/' + item.uid"
+                @click.native="$scrollToTop"
+              >{{item.data.title[0].text}}</router-link>
+            </div>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/blog" @click.native="$scrollToTop">Blog</router-link>
@@ -120,6 +140,7 @@ export default {
     return {
       menuIsActive: false,
       ourNurseryMenu: "",
+      parentsMenu: "",
     };
   },
   methods: {
@@ -135,12 +156,7 @@ export default {
     },
     getOurNurseryMenu() {
       this.$prismic.client
-        .query(
-          this.$prismic.Predicates.at("document.type", "our-nursery")
-          // , {
-          //   orderings: "[document.first_publication_date desc]",
-          // }
-        )
+        .query(this.$prismic.Predicates.at("document.type", "our-nursery"))
         .then((document) => {
           if (document) {
             this.ourNurseryMenu = document.results;
@@ -149,12 +165,25 @@ export default {
           }
         });
     },
+    getParentsMenu() {
+      this.$prismic.client
+        .query(this.$prismic.Predicates.at("document.type", "parents"))
+        .then((document) => {
+          if (document) {
+            this.parentsMenu = document.results;
+          } else {
+            this.parentsMenu = "";
+          }
+        });
+    },
   },
   created() {
     this.getOurNurseryMenu();
+    this.getParentsMenu();
   },
   beforeRouteUpdate(to, from, next) {
     this.getOurNurseryMenu();
+    this.getParentsMenu();
     next();
   },
 };

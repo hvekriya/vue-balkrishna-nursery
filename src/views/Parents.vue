@@ -11,19 +11,19 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-              <h1>Parents</h1>
+              <prismic-rich-text :field="fields.title" />
             </div>
           </div>
         </div>
       </div>
     </header>
     <div class="wrapper container">
-      <prismic-edit-button :documentId="documentId"/>
-      <prismic-rich-text :field="fields.content" class="description"/>
+      <prismic-edit-button :documentId="documentId" />
+      <prismic-rich-text :field="fields.content" class="description" />
 
       <!-- Slices -->
       <!-- FAQ Tabs -->
-      <FAQ :fields="fields"/>
+      <FAQ :fields="fields" />
 
       <div class="cta-wrapper">
         <prismic-link
@@ -40,7 +40,7 @@ import FAQ from "../components/FAQ";
 export default {
   name: "Parents",
   components: {
-    FAQ
+    FAQ,
   },
   data() {
     return {
@@ -51,13 +51,13 @@ export default {
         ctaLink: "",
         ctaText: "",
         slices: [],
-        cover: this.randomCover()
-      }
+        cover: this.randomCover(),
+      },
     };
   },
   methods: {
-    getContent() {
-      this.$prismic.client.getSingle("parents").then(document => {
+    getContent(uid) {
+      this.$prismic.client.getByUID("parents", uid).then((document) => {
         if (document) {
           this.documentId = document.id;
           this.fields.title = document.data.title;
@@ -70,18 +70,18 @@ export default {
           }
         } else {
           this.$router.push({
-            name: "not-found"
+            name: "not-found",
           });
         }
       });
-    }
+    },
   },
   created() {
-    this.getContent();
+    this.getContent(this.$route.params.uid);
   },
   beforeRouteUpdate(to, from, next) {
-    this.getContent();
+    this.getContent(to.params.uid);
     next();
-  }
+  },
 };
 </script>
