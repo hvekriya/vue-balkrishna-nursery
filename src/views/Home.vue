@@ -8,12 +8,12 @@
     <main id="content" role="main">
       <!-- Full Page Image Header with Vertically Centered Content -->
       <img class="img-fluid home-cover animated fadeInDown" :src="this.fields.cover.url" />
-      <div class="scrolling-text">
+      <!-- <div class="scrolling-text">
         <h2>
           <span>REGISTRATION OPEN FOR NEW PLACES</span>
           <span>REGISTRATION OPEN FOR NEW PLACES</span>
         </h2>
-      </div>
+      </div>-->
 
       <!-- Main Content -->
       <div class="container">
