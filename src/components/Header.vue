@@ -1,6 +1,9 @@
 <template>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow" id="mainNav">
+  <nav
+    class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow"
+    id="mainNav"
+  >
     <div class="container">
       <a class="navbar-brand" href="/">Bal Krishna Nursery</a>
       <button
@@ -21,18 +24,23 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <router-link class="nav-link" to="/" @click.native="$scrollToTop">Home</router-link>
+            <router-link class="nav-link" to="/" @click.native="$scrollToTop"
+              >Home</router-link
+            >
           </li>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
-              :class="{'router-link-exact-active':subIsActive('/our-nursery')}"
+              :class="{
+                'router-link-exact-active': subIsActive('/our-nursery'),
+              }"
               data-toggle="dropdown"
               href="#"
               role="button"
               aria-haspopup="true"
               aria-expanded="false"
-            >Our Nursery</a>
+              >Our Nursery</a
+            >
             <div class="dropdown-menu">
               <!-- <router-link
                 v-for="(item, index) in ourNurseryMenu"
@@ -46,52 +54,58 @@
                 class="dropdown-item"
                 to="/our-nursery/our-values"
                 @click.native="$scrollToTop"
-              >Our vision and values</router-link>
+                >Our vision and values</router-link
+              >
               <router-link
                 class="dropdown-item"
                 to="/our-nursery/curriculum"
                 @click.native="$scrollToTop"
-              >Curriculum</router-link>
+                >Curriculum</router-link
+              >
               <router-link
                 class="dropdown-item"
                 to="/our-nursery/food"
                 @click.native="$scrollToTop"
-              >Food</router-link>
+                >Food</router-link
+              >
               <router-link
                 class="dropdown-item"
                 to="/our-nursery/fees-and-funding"
                 @click.native="$scrollToTop"
               >
-                Fees
-                and funding
+                Fees and funding
               </router-link>
               <router-link
                 class="dropdown-item"
                 to="/our-nursery/meet-the-team"
                 @click.native="$scrollToTop"
-              >Meet the team</router-link>
+                >Meet the team</router-link
+              >
               <router-link
                 class="dropdown-item"
                 to="/our-nursery/vacancy"
                 @click.native="$scrollToTop"
-              >Vacancy</router-link>
+                >Vacancy</router-link
+              >
               <router-link
                 class="dropdown-item"
                 to="/our-nursery/policies"
                 @click.native="$scrollToTop"
-              >Policies</router-link>
+                >Policies</router-link
+              >
             </div>
           </li>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
-              :class="{'router-link-exact-active':subIsActive('/parents')}"
+              :class="{ 'router-link-exact-active': subIsActive('/parents') }"
               data-toggle="dropdown"
               href="#"
               role="button"
               aria-haspopup="true"
               aria-expanded="false"
-            >Parents</a>
+              >Parents</a
+            >
             <div class="dropdown-menu">
               <router-link
                 v-for="(item, index) in parentsMenu"
@@ -99,34 +113,54 @@
                 class="dropdown-item"
                 :to="'/parents/' + item.uid"
                 @click.native="$scrollToTop"
-              >{{item.data.title[0].text}}</router-link>
+                >{{ item.data.title[0].text }}</router-link
+              >
             </div>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/blog" @click.native="$scrollToTop">Blog</router-link>
+            <router-link
+              class="nav-link"
+              to="/blog"
+              @click.native="$scrollToTop"
+              >Blog</router-link
+            >
           </li>
           <li class="nav-item">
             <router-link
               class="nav-link"
               to="/our-nursery/covid-19"
               @click.native="$scrollToTop"
-            >COVID-19</router-link>
+              >COVID-19</router-link
+            >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/contact" @click.native="$scrollToTop">Contact</router-link>
+            <router-link
+              class="nav-link"
+              to="/contact"
+              @click.native="$scrollToTop"
+              >Contact</router-link
+            >
           </li>
-          <li class="nav-item">
+          <!-- SPACER-->
+          <li class="nav-item mr-4"></li>
+          <!-- SPACER-->
+
+          <li class="nav-item social-media">
             <a
               class="nav-link"
               href="https://www.facebook.com/Bal-Krishna-Nursery-101302974825134/"
             >
-              Follow us
               <i class="fab fa-facebook-square"></i>
             </a>
           </li>
-          <!-- <li class="nav-item">
-            <router-link class="nav-link btn btn-outline-success" to="/contact" @click.native="$scrollToTop">Contact</router-link>
-          </li>-->
+          <li class="nav-item social-media">
+            <a
+              class="nav-link"
+              href="https://www.instagram.com/balkrishnanursery/"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
