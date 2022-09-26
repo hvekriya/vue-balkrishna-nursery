@@ -14,7 +14,7 @@ export default {
   name: "App",
   components: {
     Header,
-    Footer
+    Footer,
   },
 
   watch: {
@@ -22,14 +22,13 @@ export default {
       $(".navbar-collapse").collapse("hide");
       $(".navbar-toggler").removeClass("is-active");
       $(".navbar-toggler").removeClass("collapsed");
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="sass">
-  @import "./assets/styles/main.scss";
-
+@import "./assets/styles/main.scss"
 </style>
 
 <style>
