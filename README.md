@@ -1,29 +1,38 @@
-# vue-balkrishna-nursery
+# Bal Krishna Nursery by Woolwich Temple
 
-This template should help get you started developing with Vue 3 in Vite.
+## How to launch this project in your local environment
 
-## Recommended IDE Setup
+Run the following commands:
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+```bash
+npm install
+npm start
+```
 
-## Customize configuration
+NOTE: You will need access to Prismic.io
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Then you can access it at [http://localhost:8080](http://localhost:8080).
 
-## Project Setup
+## Project setup
 
-```sh
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Compiles and hot-reloads for development
 
-```sh
-npm run dev
+```bash
+npm start
 ```
 
-### Compile and Minify for Production
+### Compiles and minifies for production
 
-```sh
+```bash
 npm run build
+```
+
+### Lints and fixes files
+
+```bash
+npm run lint
 ```

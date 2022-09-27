@@ -28,15 +28,17 @@
             frameborder="0"
             marginheight="0"
             marginwidth="0"
-            >Loading...</iframe
-          >
+          >Loading...</iframe>
         </div>
         <div class="col-md-4 col-lg-4">
           <form>
-            <legend><i class="fas fa-map-marker-alt"></i> Our Location</legend>
+            <legend>
+              <i class="fas fa-map-marker-alt"></i> Our Location
+            </legend>
             <address>
               <strong>Bal Krishna Nursery</strong>
-              <br />SKSS Temple Woolwich, <br />St. Margarets Grove,
+              <br />SKSS Temple Woolwich,
+              <br />St. Margarets Grove,
               <br />London, SE18 7RL
               <br />
               <br />
@@ -50,18 +52,28 @@
         </div>
       </div>
     </div>
+    <div class="container-fluid mt-4">
+      <div class="row">
+        <Map />
+      </div>
+    </div>
   </main>
 </template>
 
 <script>
+import axios from "axios";
+import Map from "../components/Map";
 export default {
   name: "ContactUs",
+  components: {
+    Map
+  },
   data() {
     return {
       fields: {
-        cover: this.randomCover(),
-      },
+        cover: this.randomCover()
+      }
     };
-  },
+  }
 };
 </script>

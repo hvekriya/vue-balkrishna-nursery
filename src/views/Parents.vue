@@ -18,6 +18,7 @@
       </div>
     </header>
     <div class="wrapper container">
+      <prismic-edit-button :documentId="documentId" />
       <prismic-rich-text :field="fields.content" class="description" />
 
       <!-- Slices -->
@@ -25,16 +26,17 @@
       <FAQ :fields="fields" />
 
       <div class="cta-wrapper">
-        <prismic-link :field="fields.ctaLink" class="cta">{{
-          $prismic.richTextAsPlain(fields.ctaText)
-        }}</prismic-link>
+        <prismic-link
+          :field="fields.ctaLink"
+          class="cta"
+        >{{ $prismic.richTextAsPlain(fields.ctaText) }}</prismic-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import FAQ from "../components/FAQ.vue";
+import FAQ from "../components/FAQ";
 export default {
   name: "Parents",
   components: {

@@ -18,32 +18,34 @@
       </div>
     </header>
     <div class="wrapper container">
-      <prismic-rich-text :field="fields.content" class="description" />
+      <prismic-edit-button :documentId="documentId"/>
+      <prismic-rich-text :field="fields.content" class="description"/>
       <div class="cta-wrapper">
-        <prismic-link :field="fields.ctaLink" class="cta">{{
-          $prismic.richTextAsPlain(fields.ctaText)
-        }}</prismic-link>
+        <prismic-link
+          :field="fields.ctaLink"
+          class="cta"
+        >{{ $prismic.richTextAsPlain(fields.ctaText) }}</prismic-link>
       </div>
       <!-- Slices -->
 
-      <Team :fields="fields" />
-      <ImageSlice :fields="fields" />
+      <Team :fields="fields"/>
+      <ImageSlice :fields="fields"/>
     </div>
-    <Banner :fields="fields" />
+    <Banner :fields="fields"/>
   </div>
 </template>
 
 <script>
-import Banner from "../components/Banner.vue";
-import Team from "../components/Team.vue";
-import ImageSlice from "../components/ImageSlice.vue";
+import Banner from "../components/Banner";
+import Team from "../components/Team";
+import ImageSlice from "../components/ImageSlice";
 
 export default {
   name: "OurNursery",
   components: {
     Banner,
     Team,
-    ImageSlice,
+    ImageSlice
   },
   data() {
     return {
@@ -54,13 +56,13 @@ export default {
         ctaLink: "",
         ctaText: "",
         slices: [],
-        cover: this.randomCover(),
-      },
+        cover: this.randomCover()
+      }
     };
   },
   methods: {
     getContent(uid) {
-      this.$prismic.client.getByUID("our-nursery", uid).then((document) => {
+      this.$prismic.client.getByUID("our-nursery", uid).then(document => {
         if (document) {
           this.documentId = document.id;
           this.fields.title = document.data.title;
@@ -73,11 +75,11 @@ export default {
           }
         } else {
           this.$router.push({
-            name: "not-found",
+            name: "not-found"
           });
         }
       });
-    },
+    }
   },
   created() {
     this.getContent(this.$route.params.uid);
@@ -85,6 +87,6 @@ export default {
   beforeRouteUpdate(to, from, next) {
     this.getContent(to.params.uid);
     next();
-  },
+  }
 };
 </script>

@@ -7,10 +7,7 @@
     ></header>-->
     <main id="content" role="main">
       <!-- Full Page Image Header with Vertically Centered Content -->
-      <img
-        class="img-fluid home-cover animated fadeInDown"
-        :src="this.fields.cover.url"
-      />
+      <img class="img-fluid home-cover animated fadeInDown" :src="this.fields.cover.url" />
       <!-- <div class="scrolling-text">
         <h2>
           <span>REGISTRATION OPEN FOR NEW PLACES</span>
@@ -33,9 +30,11 @@
         <ImageSlice :fields="fields" />
 
         <div class="cta-wrapper">
-          <prismic-link :field="fields.ctaLink" class="cta">{{
-            $prismic.richTextAsPlain(fields.ctaText)
-          }}</prismic-link>
+          <prismic-edit-button :documentId="documentId" />
+          <prismic-link
+            :field="fields.ctaLink"
+            class="cta"
+          >{{ $prismic.richTextAsPlain(fields.ctaText) }}</prismic-link>
         </div>
       </div>
     </main>
@@ -44,12 +43,12 @@
 
 
 <script>
-import FeaturedArticles from "../components/FeaturedArticles.vue";
-import FAQ from "../components/FAQ.vue";
-import Banner from "../components/Banner.vue";
-import Slider from "../components/Slider.vue";
-import ImageSlice from "../components/ImageSlice.vue";
-import RecentArticles from "../components/RecentBlog.vue";
+import FeaturedArticles from "../components/FeaturedArticles";
+import FAQ from "../components/FAQ";
+import Banner from "../components/Banner";
+import Slider from "../components/Slider";
+import ImageSlice from "../components/ImageSlice";
+import RecentArticles from "../components/RecentBlog";
 export default {
   name: "Home",
   components: {
@@ -74,8 +73,8 @@ export default {
     };
   },
   methods: {
-    async getContent() {
-      await this.$prismic.client.getSingle("home").then((document) => {
+    getContent() {
+      this.$prismic.client.getSingle("home").then((document) => {
         console.log(document);
         if (document) {
           this.documentId = document.id;

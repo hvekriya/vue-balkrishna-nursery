@@ -18,15 +18,17 @@
       </div>
     </header>
     <div class="wrapper container">
+      <prismic-edit-button :documentId="documentId" />
       <prismic-rich-text :field="fields.content" class="description" />
       <div class="cta-wrapper">
-        <prismic-link :field="fields.ctaLink" class="cta">{{
-          $prismic.richTextAsPlain(fields.ctaText)
-        }}</prismic-link>
+        <prismic-link
+          :field="fields.ctaLink"
+          class="cta"
+        >{{ $prismic.richTextAsPlain(fields.ctaText) }}</prismic-link>
       </div>
       <div class="sharethis-inline-reaction-buttons"></div>
       <hr />
-      <h5>Posted on {{ fields.postedDate | formatDate }}</h5>
+      <h5>Posted on {{fields.postedDate | formatDate }}</h5>
       <hr />
     </div>
   </div>
@@ -44,13 +46,13 @@ export default {
         ctaLink: "",
         ctaText: "",
         postedDate: "",
-        cover: this.randomCover(),
-      },
+        cover: this.randomCover()
+      }
     };
   },
   methods: {
     getContent(uid) {
-      this.$prismic.client.getByUID("blog", uid).then((document) => {
+      this.$prismic.client.getByUID("blog", uid).then(document => {
         if (document) {
           this.documentId = document.id;
           this.fields.title = document.data.title;
@@ -63,11 +65,11 @@ export default {
           }
         } else {
           this.$router.push({
-            name: "not-found",
+            name: "not-found"
           });
         }
       });
-    },
+    }
   },
   mounted() {
     let shareThisScript = document.createElement("script");
@@ -83,6 +85,6 @@ export default {
   beforeRouteUpdate(to, from, next) {
     this.getContent(to.params.uid);
     next();
-  },
+  }
 };
 </script>
