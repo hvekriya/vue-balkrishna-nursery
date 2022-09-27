@@ -7,7 +7,11 @@
         <!-- Main card -->
         <div class="bd-example" data-example-id>
           <div id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="card" v-for="(item, index) in slice.items" :key="'photo-' + index">
+            <div
+              class="card"
+              v-for="(item, index) in slice.items"
+              :key="'photo-' + index"
+            >
               <div class="card-header" role="tab" id="headingOne">
                 <div class="mb-0">
                   <a
@@ -18,7 +22,7 @@
                     :aria-controls="'#collapse-' + index"
                     class="collapsed"
                   >
-                    <h5>{{item.question[0].text}}</h5>
+                    <h5>{{ item.question[0].text }}</h5>
                   </a>
                 </div>
               </div>
@@ -30,7 +34,10 @@
                 aria-expanded="false"
               >
                 <div class="card-body">
-                  <prismic-rich-text :field="item.answer" class="card-text text-black-50" />
+                  <prismic-rich-text
+                    :field="item.answer"
+                    class="card-text text-black-50"
+                  />
                 </div>
               </div>
             </div>
@@ -51,6 +58,6 @@
 <script>
 export default {
   name: "FAQ",
-  props: ["fields"]
+  props: ["fields"],
 };
 </script>
