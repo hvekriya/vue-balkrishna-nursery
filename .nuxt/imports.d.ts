@@ -32,3 +32,4 @@ export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composab
 export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
 export { usePrismic, getSliceComponentProps, defineSliceZoneComponents, getRichTextComponentProps, getTableComponentProps } from '@prismicio/vue';
 export { usePrismicPreview } from '../node_modules/@nuxtjs/prismic/dist/runtime/usePrismicPreview';
+export { useNuxtDevTools } from '../node_modules/nuxt/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
