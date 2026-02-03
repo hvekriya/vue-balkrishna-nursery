@@ -1,7 +1,13 @@
-# Nuxt static generate outputs to dist
+# Nuxt static preset outputs to .output/public. If you use dist, set publish = "dist" in Netlify UI.
 [build]
   command = "npm run generate"
-  publish = "dist"
+  publish = ".output/public"
 
 [build.environment]
   NODE_VERSION = "24"
+
+# SPA fallback: serve index.html for all routes so client-side routing works
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
