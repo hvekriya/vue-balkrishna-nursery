@@ -50,6 +50,15 @@ export default defineNuxtConfig({
 
   tailwindcss: {},
 
+  // Generate as fully static site (no Netlify server/functions)
+  nitro: {
+    preset: 'static',
+    prerender: {
+      crawlLinks: true,
+      failOnError: false,
+    },
+  },
+
   runtimeConfig: {
     public: {
       prismicAccessToken: process.env.NUXT_PUBLIC_PRISMIC_ACCESS_TOKEN || '',
