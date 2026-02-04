@@ -6,16 +6,16 @@
         v-if="page?.data?.cover?.url"
         :src="page.data.cover.url"
         :alt="page.data.cover.alt ?? 'Bal Krishna Nursery'"
-        class="w-full h-[50vh] min-h-[280px] md:h-[75vh] md:min-h-[420px] object-cover object-top md:object-center"
+        class="w-full h-[50vh] min-h-[280px] md:h-[75vh] md:min-h-[420px] object-cover object-center"
       />
       <img
         v-else
         src="/img/home-bg.jpg"
         alt="Bal Krishna Nursery"
-        class="w-full h-[50vh] min-h-[280px] md:h-[75vh] md:min-h-[420px] object-cover object-top md:object-center"
+        class="w-full h-[50vh] min-h-[280px] md:h-[75vh] md:min-h-[420px] object-cover object-center"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-brand/80 via-brand/30 to-transparent" />
-      <div class="absolute inset-0 flex items-end pb-12 md:pb-20 lg:pb-28">
+      <!-- <div class="absolute inset-0 flex items-end pb-12 md:pb-20 lg:pb-28">
         <div class="container mx-auto px-4">
           <p class="text-white/95 text-lg md:text-xl font-display font-semibold drop-shadow-sm">
             <span v-if="page?.data?.welcome_heading"><PrismicText :field="page.data.welcome_heading" /></span>
@@ -26,7 +26,7 @@
             <span v-else>A caring start for every child</span>
           </h1>
         </div>
-      </div>
+      </div> -->
       <a
         href="#main-content"
         class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center rounded-full p-2 text-white/90 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-white/50 md:bottom-6"
